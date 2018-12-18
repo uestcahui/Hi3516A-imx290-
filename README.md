@@ -16,7 +16,7 @@
 
 1、[分享3516a/d+imx290 2to1L WDR驱动+2016.9.23优化rtp图传效果，传输1080p30fp不卡](http://bbs.ebaina.com/thread-12458-1-1.html) ；社区大神@ljx6233535 分享了自己移植的imx290驱动，无奈该驱动是针对采用 SPI + LVDS接口的模组，我们使用的则是I2C + MIPI接口的模组。[sony-imx290-spi](./290-spi)
 
-2、[悬赏：急！现金求Hi2516a+IMX290的集成方案](http://bbs.ebaina.com/thread-12603-1-1.html) 社区用户分享@王乾发 分享了他的移植经验，我也是按照他给的流程做的移植。![](/Users/MacDong/Dev/海思方案/imx290/Hi3516A+imx290移植方案/img/WX20181218-165943@2x.png)
+2、[悬赏：急！现金求Hi2516a+IMX290的集成方案](http://bbs.ebaina.com/thread-12603-1-1.html) 社区用户分享@王乾发 分享了他的移植经验，我也是按照他给的流程做的移植。![](./img/WX20181218-165943@2x.png)
 
 
 
@@ -44,7 +44,7 @@
 
 3. sensor： imx290 （I2C + MIPI）
 
-   ![WX20181218-185031@2x](/Users/MacDong/Dev/海思方案/imx290/Hi3516A+imx290移植方案/img/WX20181218-185031@2x.png)
+   ![WX20181218-185031@2x](./img/WX20181218-185031@2x.png)
 
 
 
