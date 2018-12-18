@@ -1,0 +1,214 @@
+# Hisilicon Hi35xx sample Makefile.param
+
+ifeq ($(PARAM_FILE), )
+     PARAM_FILE:=../../../mpp/Makefile.param
+     include $(PARAM_FILE)
+endif
+
+ifeq ($(WDR),)
+WDR :=n
+endif
+
+
+################# select sensor type for your sample ####################
+
+#------demo board use sublvds default----------------
+SENSOR_TYPE ?= SONY_IMX290_MIPI_1080P_30FPS
+#SENSOR_TYPE ?= PANASONIC_MN34220_SUBLVDS_1080P_30FPS
+#SENSOR_TYPE ?= PANASONIC_MN34220_SUBLVDS_720P_120FPS
+
+#SENSOR_TYPE ?= PANASONIC_MN34220_MIPI_1080P_30FPS
+#SENSOR_TYPE ?= PANASONIC_MN34220_MIPI_720P_120FPS
+
+#SENSOR_TYPE ?= SONY_IMX178_LVDS_5M_30FPS
+#SENSOR_TYPE ?= SONY_IMX178_LVDS_1080P_30FPS
+
+#SENSOR_TYPE ?= SONY_IMX117_LVDS_1080P_30FPS
+#SENSOR_TYPE ?= SONY_IMX117_LVDS_720P_30FPS
+
+#SENSOR_TYPE ?= SONY_IMX123_LVDS_QXGA_30FPS
+
+#SENSOR_TYPE ?= SONY_IMX185_MIPI_1080P_30FPS
+
+#SENSOR_TYPE ?= APTINA_AR0230_HISPI_1080P_30FPS
+#SENSOR_TYPE ?= APTINA_AR0237_HISPI_1080P_30FPS
+#SENSOR_TYPE ?= APTINA_AR0330_MIPI_1080P_30FPS
+#SENSOR_TYPE ?= APTINA_AR0330_MIPI_1536P_25FPS
+#SENSOR_TYPE ?= APTINA_AR0330_MIPI_1296P_25FPS
+
+#SENSOR_TYPE ?= OMNIVISION_OV4689_MIPI_1080P_30FPS
+#SENSOR_TYPE ?= OMNIVISION_OV4689_MIPI_4M_30FPS
+
+#SENSOR_TYPE ?= OMNIVISION_OV5658_MIPI_5M_30FPS
+
+SENSOR_LIBS := $(REL_LIB)/libisp.a
+
+ifeq ($(SENSOR_TYPE), SONY_IMX290_MIPI_1080P_30FPS)
+	SENSOR_LIBS += $(REL_LIB)/libsns_imx290.a
+endif
+
+ifeq ($(SENSOR_TYPE), PANASONIC_MN34220_SUBLVDS_1080P_30FPS)
+	SENSOR_LIBS += $(REL_LIB)/libsns_mn34220.a
+endif
+
+ifeq ($(SENSOR_TYPE), PANASONIC_MN34220_SUBLVDS_720P_120FPS)
+	SENSOR_LIBS += $(REL_LIB)/libsns_mn34220.a
+endif
+
+ifeq ($(SENSOR_TYPE), PANASONIC_MN34220_MIPI_1080P_30FPS)
+	SENSOR_LIBS += $(REL_LIB)/libsns_mn34220_mipi.a
+endif
+
+ifeq ($(SENSOR_TYPE), PANASONIC_MN34220_MIPI_1080P_60FPS)
+        SENSOR_LIBS += $(REL_LIB)/libsns_mn34220_mipi.a
+endif
+
+ifeq ($(SENSOR_TYPE), PANASONIC_MN34220_MIPI_720P_120FPS)
+	SENSOR_LIBS += $(REL_LIB)/libsns_mn34220_mipi.a
+endif
+
+ifeq ($(SENSOR_TYPE), APTINA_9M034_DC_960P_30FPS)
+       SENSOR_LIBS += $(REL_LIB)/libsns_9m034_960p.a
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX178_LVDS_1080P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_imx178.a
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX178_LVDS_5M_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_imx178.a
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX117_LVDS_1080P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_imx117.a
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX117_LVDS_720P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_imx117.a
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX123_LVDS_QXGA_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_imx123.a
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX185_MIPI_1080P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_imx185.a
+endif
+
+ifeq ($(SENSOR_TYPE), APTINA_AR0230_HISPI_1080P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ar0230.a
+endif
+
+ifeq ($(SENSOR_TYPE), APTINA_AR0237_HISPI_1080P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ar0237.a
+endif
+
+ifeq ($(SENSOR_TYPE), APTINA_AR0330_MIPI_1080P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ar0330.a
+endif
+
+ifeq ($(SENSOR_TYPE), APTINA_AR0330_MIPI_1536P_25FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ar0330.a
+endif
+
+ifeq ($(SENSOR_TYPE), APTINA_AR0330_MIPI_1296P_25FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ar0330.a
+endif
+
+ifeq ($(SENSOR_TYPE), OMNIVISION_OV4689_MIPI_1080P_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ov4689.a
+endif
+
+ifeq ($(SENSOR_TYPE), OMNIVISION_OV4689_MIPI_4M_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ov4689.a
+endif
+
+ifeq ($(SENSOR_TYPE), OMNIVISION_OV4689_MIPI_2048X1520_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ov4689.a
+endif
+
+ifeq ($(SENSOR_TYPE), OMNIVISION_OV4689_MIPI_2304X1296_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ov4689.a
+endif
+
+ifeq ($(SENSOR_TYPE), OMNIVISION_OV5658_MIPI_5M_30FPS)
+      SENSOR_LIBS += $(REL_LIB)/libsns_ov5658.a
+endif
+
+#iniparser
+SENSOR_LIBS += $(REL_LIB)/lib_cmoscfg.a
+SENSOR_LIBS += $(REL_LIB)/lib_iniparser.a
+#########################################################################
+
+COMMON_DIR:=$(PWD)/../common
+
+INC_FLAGS := -I$(COMMON_DIR)
+INC_FLAGS += -I$(REL_INC)
+INC_FLAGS += -I$(SDK_PATH)/mpp/component/acodec
+
+ifeq ($(MPP_BUILD), y)
+	INC_FLAGS += -I$(SDK_PATH)/mpp/$(EXTDRV)/tw2865
+	INC_FLAGS += -I$(SDK_PATH)/mpp/$(EXTDRV)/tlv320aic31
+	INC_FLAGS += -I$(SDK_PATH)/mpp/$(EXTDRV)/ak7756en
+else
+	INC_FLAGS += -I$(SDK_PATH)/mpp/extdrv/tw2865
+	INC_FLAGS += -I$(SDK_PATH)/mpp/$(EXTDRV)/tlv320aic31
+	INC_FLAGS += -I$(SDK_PATH)/mpp/$(EXTDRV)/ak7756en
+endif
+
+ISP_VERSION := ISP_V2
+SENSOR_LIBS += $(REL_LIB)/lib_hiae.a
+SENSOR_LIBS += $(REL_LIB)/lib_hiawb.a
+SENSOR_LIBS += $(REL_LIB)/lib_hiaf.a
+
+SENSOR_LIBS += $(REL_LIB)/lib_hidefog.a
+CFLAGS := -Wall -g $(INC_FLAGS) -D$(HIARCH) -DHICHIP=$(HICHIP) -DSENSOR_TYPE=$(SENSOR_TYPE) -D$(HIDBG) -D$(HI_FPGA) -lpthread -lm -ldl -D$(ISP_VERSION)
+
+ifeq ($(SENSOR_TYPE), PANASONIC_MN34220_SUBLVDS_1080P_30FPS)
+	CFLAGS += -DHI_MIPI_ENABLE
+endif  
+
+ifeq ($(SENSOR_TYPE), SONY_IMX178_LVDS_1080P_30FPS)
+	CFLAGS += -DHI_MIPI_ENABLE
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX178_LVDS_5M_30FPS)
+	CFLAGS += -DHI_MIPI_ENABLE
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX185_MIPI_1080P_30FPS)
+	CFLAGS += -DHI_MIPI_ENABLE
+endif
+
+ifeq ($(SENSOR_TYPE), SONY_IMX290_MIPI_1080P_30FPS)
+	CFLAGS += -DHI_MIPI_ENABLE
+endif
+
+################ select audio codec type for your sample ################
+ACODEC_TYPE ?= ACODEC_TYPE_INNER
+#external acodec
+#ACODEC_TYPE ?= ACODEC_TYPE_AK7756
+#ACODEC_TYPE ?= ACODEC_TYPE_TLV320AIC31
+
+ifeq ($(ACODEC_TYPE), ACODEC_TYPE_INNER)
+	CFLAGS += -DHI_ACODEC_TYPE_INNER
+endif
+
+ifeq ($(ACODEC_TYPE), ACODEC_TYPE_AK7756)
+	CFLAGS += -DHI_ACODEC_TYPE_AK7756
+endif
+
+ifeq ($(ACODEC_TYPE), ACODEC_TYPE_TLV320AIC31)
+	CFLAGS += -DHI_ACODEC_TYPE_TLV320AIC31
+endif
+#########################################################################
+
+CFLAGS += $(LIBS_CFLAGS)
+
+COMM_SRC := $(wildcard $(COMMON_DIR)/*.c)
+
+#DEL_SRC  := $(COMMON_DIR)/sample_comm_audio.c
+#COMM_SRC := $(filter-out $(DEL_SRC), $(COMM_SRC))
+
+COMM_OBJ := $(COMM_SRC:%.c=%.o)
+

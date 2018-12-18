@@ -1,0 +1,46 @@
+
+需要修改的地方：
+1、load3516a 脚本
+
+2、/etc/init.d/rcS 脚本
+
+3、sample/common文件下面的文件: ok
+    common_vi
+    common_isp
+    common.h
+
+
+4、sample/Makefile ok
+
+
+Hi3915 load3519
+ imx290)
+tmp=0x18;
+# SDK config:     IVE:396M,  GDC:475M,  VGS:500M,  VEDU:600M,   VPSS:300M 
+#imx290:viu0:340M,isp0:214M, viu1:340M,isp1:214M
+
+himm 0x1201004c 0x00094c24; 
+    //0x1201_0000 是CRG寄存器，时钟配置用
+    // 0x004c 为媒体CBB频率寄存器1
+    // 0x00094c24-- vi0--340M,  vpss--300M, vedu--600M, VGS--500M, GDC--475M,IVE--396,
+    //               
+himm 0x12010054 0x0004;
+    // 0x0054 为媒体CBB频率寄存器2
+    // 0x0004  vi1--340M
+    
+himm 0x12010040 0x18;           # sensor0 clk_en, 37.125MHz
+    // 0040 是Sensor 时钟配置寄存器
+    // 0x18 -- sensor 0 --37.125M ,sensor 0 时钟开
+i2c0_pin_mux; //配置I2C的引脚复用  & 驱动能力配置
+;;
+load3516a
+
+
+-----
+290配置为
+
+imx290)
+			himm 0x200f0050 0x2;                # i2c0_scl
+			himm 0x200f0054 0x2;                # i2c0_sda
+			himm 0x2003002c 0x90007            # sensor unreset, clk 37.125MHz, VI 250MHz
+            ;;

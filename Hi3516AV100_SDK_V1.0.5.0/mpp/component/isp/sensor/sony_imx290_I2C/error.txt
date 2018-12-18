@@ -1,0 +1,26 @@
+ls: cannot access /hiwork/osdrvhi3516a.C01: No such file or directory
+imx290_cmos.c:422:18: warning: ‘g_stAwbCcmWDR’ defined but not used [-Wunused-variable]
+ static AWB_CCM_S g_stAwbCcmWDR =
+                  ^
+imx290_cmos.c:454:24: warning: ‘g_stAwbAgcTableFSWDR’ defined but not used [-Wunused-variable]
+ static AWB_AGC_TABLE_S g_stAwbAgcTableFSWDR =
+                        ^
+imx290_cmos.c:539:29: warning: ‘g_stIspAgcTableFSWDR’ defined but not used [-Wunused-variable]
+ static ISP_CMOS_AGC_TABLE_S g_stIspAgcTableFSWDR =
+                             ^
+imx290_cmos.c:595:31: warning: ‘g_stIspNoiseTableFSWDR’ defined but not used [-Wunused-variable]
+ static ISP_CMOS_NOISE_TABLE_S g_stIspNoiseTableFSWDR =
+                               ^
+imx290_cmos.c:661:28: warning: ‘g_stIspDemosaicFSWDR’ defined but not used [-Wunused-variable]
+ static ISP_CMOS_DEMOSAIC_S g_stIspDemosaicFSWDR =
+                            ^
+imx290_cmos.c:746:25: warning: ‘g_stIspGammaFSWDR’ defined but not used [-Wunused-variable]
+ static ISP_CMOS_GAMMA_S g_stIspGammaFSWDR =
+                         ^
+imx290_cmos.c:770:27: warning: ‘g_stGammafeFSWDR’ defined but not used [-Wunused-variable]
+ static ISP_CMOS_GAMMAFE_S g_stGammafeFSWDR = 
+                           ^
+imx290_sensor_ctl.c:32:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘extern’
+ extern HI_U8 gu8SensorImageMode;
+ ^
+make: *** [obj/imx290_sensor_ctl.o] Error 1
